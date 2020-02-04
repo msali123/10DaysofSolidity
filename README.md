@@ -32,3 +32,9 @@ Made a ``mapping (address => uint) balances;`` to store the address as key and u
 
 Function ``balanceOf()`` will take an argument as address and will return its respective balance.
 
+# Day3:
+
+Commit Hash(3ca80ba560ab9b86c10757161a0f60505b05c57a)
+
+Added public variables or getter and setter for our Token's Name, Symbol & Decimals as per ERC20.
+
