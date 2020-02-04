@@ -23,3 +23,12 @@ Made a smart contract named MyToken & added a function of TotalSupply() accordin
 ``uint supply;`` <- Total supply of our token will be initialized in this variable of uint type.
 
 The function ``totalSupply()`` will return our ``supply`` variable.
+
+# Day2:
+
+Commit Hash(6dc83eed2e5ff7a0a3911a789f6f9be3e0089ecc)
+
+Made a ``mapping (address => uint) balances;`` to store the address as key and uint as their balance.
+
+Function ``balanceOf()`` will take an argument as address and will return its respective balance.
+
