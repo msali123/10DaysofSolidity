@@ -1,6 +1,9 @@
 pragma solidity 0.5.12;
 
 contract MyToken{
+    string public name;  //A public variable of our Token Name
+    string public symbol; //A public variable of our Token Symbol
+    uint8 public decimals; //A public varable of our Token Decimals(How much can our token can be divisible into)
 //We will be defining the total supply of our token in variable supply
 uint supply;
 //This mapping will be responsible to hold  the balances of our accounts.
