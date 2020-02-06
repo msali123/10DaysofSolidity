@@ -12,11 +12,20 @@ contract MyToken{
         uint256 _value
     );
 
+    //An event declared as per ERC20 Requirments (To view the variables in logs)
+    event Approval{
+        address indexed _owner,
+        address indexed _spender,
+        uint256 _value
+    };
     //We will be defining the total supply of our token in variable supply
     uint supply;
 
     //This mapping will be responsible to hold  the balances of our accounts.
-    mapping (address => uint) balances;
+    mapping (address => uint) public balances;
+
+    //Mapping having a nested mapping e.g Key:Our Address will call another mapping(Key: from and Value: amount)
+    mapping (address => (mapping => uint)) public allowance;
 
     //This totalSupply() will be returning the total supply of our token
     function totalSupply() public view returns (uint256)
@@ -37,6 +46,15 @@ contract MyToken{
         balances[msg.sender] -= _value; //deducting the _value from msg.sender
         balances[_to] += _value; //adding the given _value to the address to transfer
         emit Transfer(msg.sender, _to, _value); //calling the event Transfer
+        return true; //Returning true if things go well
+    }
+
+    //This function approve is going to approve the Account B to spend Some Account of Tokens on our behalf
+    //E.g. If we list our tokens on an exchange we approve exchange to send/transfer our tokens 
+    function approve(address _spender, uint256 _value) public view returns (bool success){
+        allowance[msg.sender][_spender] = _value; //mapping that will be recording the allowances from our address 
+
+        emit Approval(msg.sender, _spender, _value); //Approval event to be subscribed
         return true; //Returning true if things go well
     }
     }
