@@ -43,3 +43,10 @@ Added public variables or getter and setter for our Token's Name, Symbol & Decim
 Commit Hash(69d35391cdeedee09140043b239be6c9eb310c6e)
 
 Added Transfer event & transfer() function for our Token.
+
+# Day5:
+
+Commit Hash(e4237e209544dbbb0e299719db90bb0c93c68a63)
+
+I've added Approval event, allowance mapping and an approve() function as per ERC20. I've commented with the code explaining the purpose.
+
