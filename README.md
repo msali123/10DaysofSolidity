@@ -50,3 +50,29 @@ Commit Hash(e4237e209544dbbb0e299719db90bb0c93c68a63)
 
 I've added Approval event, allowance mapping and an approve() function as per ERC20. I've commented with the code explaining the purpose.
 
+# Day6:
+
+Commit Hash(2af50423deffea02b1a6281cc24748374c18f903)
+
+Finally implemented the last required function by ERC20 Standards. Well many functionalities are still missing ,will be trying tocover them up.
+
+``transferFrom()`` will be taking 3 arguments (_from, _to, _value) 
+
+``require(balances[_from] >= _value,"Not enough Balance");`` Checking from mapping that the balance of given address is greater than or = to value given.
+
+``require(allowance[_from][msg.sender] >= _value,"Not Approved Amount");``Checking if the allowance that we gave. _from to function executor is greater or equals to _value.
+
+If these above require's are successful then our function will move forward.
+    
+``balances[_from] -= _value;`` Deducting the given balance/token from the _from address.
+
+``balances[_to] += _value;`` Increasing the given balance/token to the _to address.
+
+``allowance[_from][msg.sender] -= _value;`` Deducting the _value token given to spend from total spending.
+
+``emit Transfer(_from, _to, _value);`` Calling the event Transfer as it is required by Standards
+
+ ``return true;`` Returning true if things go well
+
+
+
