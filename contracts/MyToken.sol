@@ -27,6 +27,12 @@ contract MyToken{
     //Mapping having a nested mapping e.g Key:Our Address will call another mapping(Key: from and Value: amount)
     mapping (address => mapping(address => uint)) public allowance;
 
+    //Added a constructor that will take the amount of total supply and add that into our global variable
+    constructor(uint _supply) public{
+        balances[msg.sender] += _supply; //Adding the Tokens to the address of msg.sender.
+        supply = _supply; //Assigning supply to a state variable
+
+    }
     //This totalSupply() will be returning the total supply of our token
     function totalSupply() public view returns (uint256)
     {
@@ -56,10 +62,10 @@ contract MyToken{
         emit Approval(msg.sender, _spender, _value); //Approval event to be subscribed
         return true; //Returning true if things go well
     }
-    
+
     //Function transferFrom() will allow the B address that recieved TOkens from us to spend the allowance tokens
      function transferFrom(address _from,address _to,uint256 _value) public returns (bool success) {
-        require(balances[_from] >= _value,"Not enough Balance"); //Checking from mapping that the balance of given address is greater than or = to value give.
+        require(balances[_from] >= _value,"Not enough Balance"); //Checking from mapping that the balance of given address is greater than or = to value given.
         require(allowance[_from][msg.sender] >= _value,"Not Approved Amount"); //Checking if the allowance that we gave. _from to function executor is greater or equals to _value
 
         balances[_from] -= _value; //deducting the given balance/token from the _from address
