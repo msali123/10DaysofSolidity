@@ -81,3 +81,14 @@ Commit Hash(3dab5feec8b7ccb2b14f17afeacb53370f8d3324)
 Added a contructor that will take an argument as a ``_supply`` and will set that amount to our state level variable ``supply``.
 
 Added a test case to check our ``totalSupply()`` function & you know what??? That passed :D
+
+# Day8:
+
+Commit Hash(dec261aaf937fc07fdd4a2f8f9763e31ebb19573)
+
+Added a test to check our ``transfer()`` function running,
+
+   * Tested with amount greater than the tokens available.
+   * Tested with amount less than or equals the token available at senders address.
+   
+Added another test cases to check our ``balanceOf()`` function.
