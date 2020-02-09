@@ -74,5 +74,10 @@ If these above require's are successful then our function will move forward.
 
  ``return true;`` Returning true if things go well
 
+# Day7:
 
+Commit Hash(3dab5feec8b7ccb2b14f17afeacb53370f8d3324)
 
+Added a contructor that will take an argument as a ``_supply`` and will set that amount to our state level variable ``supply``.
+
+Added a test case to check our ``totalSupply()`` function & you know what??? That passed :D
