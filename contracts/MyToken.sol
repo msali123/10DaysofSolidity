@@ -46,7 +46,7 @@ contract MyToken{
     }
 
     //Transfer function that will take an address _to and value to transfer as _value
-    function transfer(address _to, uint256 _value) public returns (bool success)
+    function transfer(address _to, uint256 _value) public  returns (bool success)
     {
         require(balances[msg.sender] >= _value,"Not enough Balance"); //Checking for enough balance
         balances[msg.sender] -= _value; //deducting the _value from msg.sender
