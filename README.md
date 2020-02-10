@@ -99,4 +99,4 @@ Commit Hash(3d1dcf787c46d229121e4f4cb0581e91d5435ff2)
 
 Added a test case to test  ``approve()`` function, & also tested the events in it.
 
-Done some changes with previous one's as well.
+Done some changes with previous one's as well. 
