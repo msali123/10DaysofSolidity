@@ -107,4 +107,4 @@ Commit Hash(088ededfd28ba042c5d9774de30c11398c035da0)
 
 Added a test case to test  ``transferFrom()`` function, & also tested the approve mapping.
 
-So the last day of challange has ended but MyToken isn't 100% complete/ready/tested. So I will be testing and adding some more functions later on.
+So the last day of challenge has ended but MyToken isn't 100% complete/ready/tested. So I will be testing and adding some more functions later on.
