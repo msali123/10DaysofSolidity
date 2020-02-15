@@ -1,15 +1,21 @@
 const MyToken = artifacts.require('MyToken');
-contract("MyToken",accounts  =>{
+// npm install truffle-assertions
+const truffleAssert = require('truffle-assertions');
+
+contract("MyToken", (accounts)  =>{
+  let instance;
+  beforeEach('should setup the contract instance', async () => {
+    instance = await MyToken.deployed();
+  });
+
   it('Should check the initial balance', async()=>{
-    const token = await MyToken.deployed();
-    const supply = await token.totalSupply();
+    const supply = await instance.totalSupply();
     assert(supply == 10000000);
   });
 
-  it("Checkng the balance should be greater", async()=>{
-    const token = await MyToken.deployed();
+  it("Checkng the balance should not be greater in transfer", async()=>{
     try {
-      await token.transfer.call(accounts[1],9999999999);
+      await instance.transfer.call(accounts[1],9999999999);
     } 
     catch (error) {
       assert(error.message.includes("Not Equal amount doesnt exists"));
@@ -19,9 +25,8 @@ contract("MyToken",accounts  =>{
   });
 
   it("Transfer of Tokens to another account", async()=>{
-    const token = await MyToken.deployed();
     try {
-      await token.transfer(accounts[1],9999);
+      await instance.transfer(accounts[1],9999);
     //  const trans = await token.transfer(accounts[1],9999);
     //  const transcall = await token.transfer.call(accounts[1],9999);
 
@@ -39,8 +44,7 @@ contract("MyToken",accounts  =>{
   });
 
   it("Checking the Balance", async()=>{
-    const token = await MyToken.deployed();
-    const bal = await token.balanceOf(accounts[0]);
+    const bal = await instance.balanceOf(accounts[0]);
     console.log(bal.toNumber());
     console.log(accounts[0]);
     assert(bal != 0);
@@ -59,14 +63,12 @@ contract("MyToken",accounts  =>{
   });
 
   it("Checks the allowance", async()=>{
-    const token = await MyToken.deployed();
-    const allow = await token.allowance(accounts[0],accounts[1]);
+    const allow = await instance.allowance(accounts[0],accounts[1]);
     assert(allow, 200);
 
   });
 
-  it
-  ("Handles the TransferFrom Function",async()=>{
+  it("Handles the TransferFrom Function",async()=>{
     const token = await MyToken.deployed();
     let fromAccount = accounts[2];
     let toAccount = accounts[3];
@@ -86,6 +88,15 @@ contract("MyToken",accounts  =>{
 
      let bal = await token.balanceOf(toAccount);
     console.log(bal.toNumber());
+  });
+
+
+  it('should emit with correct paremeters of event Approval', async()=>{
+    let result = await instance.approve(accounts[4], 20,{from :accounts[2]} );
+    // truffleAssert.prettyPrintEmittedEvents(result);
+    truffleAssert.eventEmitted(result, 'Approval', (event) =>{
+      return (event._owner == accounts[2] && event._spender == accounts[4] && event._value ==20);
+    });
   });
 
 });
