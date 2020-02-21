@@ -1,9 +1,9 @@
 pragma solidity 0.5.12;
 
 contract MyToken{
-    string public name;  //A public variable of our Token Name
-    string public symbol; //A public variable of our Token Symbol
-    uint8 public decimals; //A public varable of our Token Decimals(How much can our token can be divisible into)
+    string public name = "MSALI";  //A public variable of our Token Name
+    string public symbol = "MSTOKENS"; //A public variable of our Token Symbol
+    uint8 public decimals = 18; //A public varable of our Token Decimals(How much can our token can be divisible into)
 
     //An event declared as per ERC20 Requirments (To view the variables in logs)
     event Transfer(
