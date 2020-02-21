@@ -108,3 +108,12 @@ Commit Hash(088ededfd28ba042c5d9774de30c11398c035da0)
 Added a test case to test  ``transferFrom()`` function, & also tested the approve mapping.
 
 So the last day of challenge has ended but MyToken isn't 100% complete/ready/tested. So I will be testing and adding some more functions later on.
+
+
+# Day N:
+
+Commit Hash(0ba35c1b58ad989e9872cf3fcb3946f9a16f0a71)
+
+So the biggest hurdle till now was testing an event, after surfing alot and a help from my Brother [Mudassir](https://github.com/Mudassir45) i've managed to find some thing that works for me :p [Article that i've read](https://medium.com/oli-systems/test-driven-solidity-with-truffle-e4beaa2bd194).
+
+Successfully tested the ``Approval`` event and it's test passes.
