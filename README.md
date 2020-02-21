@@ -117,3 +117,11 @@ Commit Hash(0ba35c1b58ad989e9872cf3fcb3946f9a16f0a71)
 So the biggest hurdle till now was testing an event, after surfing alot and a help from my Brother [Mudassir](https://github.com/Mudassir45) i've managed to find some thing that works for me :p [Article that i've read](https://medium.com/oli-systems/test-driven-solidity-with-truffle-e4beaa2bd194).
 
 Successfully tested the ``Approval`` event and it's test passes.
+
+# Day N:
+
+Commit Hash(1951b3b8aa6bbec10f61d072188197b073cc79d5)
+
+Successfully deployed my token to ropsten test network, used metamask & remix.org to accomplish :heavy_check_mark: .
+
+Check out the transactions on the following link :on: https://ropsten.etherscan.io/address/0x05619a572eb961df808c5337ae832962b4a92692
